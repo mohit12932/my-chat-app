@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form"
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 
-const page = () => {
+const Page = () => {
     const { register, handleSubmit,setError,clearErrors, formState: { errors,isSubmitting } } = useForm();
     const router = useRouter();
 
@@ -105,4 +105,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

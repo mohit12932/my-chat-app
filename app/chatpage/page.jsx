@@ -9,7 +9,7 @@ import Chatbox from './components/chatbox';
 //import search from './addfriend';
 
 
-const page = () => {
+const Page = () => {
    //const { register, handleSubmit } = useForm();
   const user = JSON.parse(localStorage.getItem('user'));
 
@@ -65,4 +65,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

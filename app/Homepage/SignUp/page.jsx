@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import Avatar from 'react-avatar';
 
-export default function page(){
+export default function Page(){
     const router = useRouter();
     const { register, handleSubmit,watch,setError,clearErrors, formState: { errors,isSubmitting } } = useForm();
 

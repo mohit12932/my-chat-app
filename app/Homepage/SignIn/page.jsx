@@ -2,6 +2,7 @@
 import React,{useState} from 'react'
 import { useForm } from "react-hook-form"
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import axios from 'axios';
 
 const Page = () => {
@@ -41,7 +42,7 @@ const Page = () => {
     <div className="container flex items-baseline justify-center h-auto px-6 mx-auto">
         <form className="w-full max-w-md"onSubmit={handleSubmit(onSubmit)}>
             <div className="flex justify-center mx-auto">
-                <img className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt=""/>
+                <Image className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt=""/>
             </div>
             
             <div className="flex items-center justify-center mt-6">

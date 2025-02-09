@@ -6,7 +6,10 @@ const Account = ({user}) => {
     const router = useRouter();
 
     const clear=()=>{
+      if(typeof window !== "undefined"){
         localStorage.clear();
+      }
+       
         router.push('../Homepage/SignIn');
     }
 

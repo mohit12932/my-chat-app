@@ -21,9 +21,12 @@ const Page = () => {
 
                 if(response.status==201){
                     alert("Logged in Successfully")
-                   localStorage.setItem('token', result.token);
-                   localStorage.setItem('user', JSON.stringify(result.user));
-                   localStorage.setItem('friends', result.friends);
+                    if (typeof window !== "undefined"){
+                        localStorage.setItem('token', result.token);
+                        localStorage.setItem('user', JSON.stringify(result.user));
+                        localStorage.setItem('friends', result.friends);
+                    }
+                  
                     router.push('/chatpage');
                     }
                 }catch (error) {

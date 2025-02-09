@@ -12,7 +12,10 @@ import Image from 'next/image';
 
 const Page = () => {
    //const { register, handleSubmit } = useForm();
-  const user = JSON.parse(localStorage.getItem('user'));
+   if (typeof window !== "undefined") {
+    const user = JSON.parse(localStorage.getItem('user'));
+   }
+  
 
   const [User, setUser] = useState(null);
  const [Nav,setNav]=useState('1');

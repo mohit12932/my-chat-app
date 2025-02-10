@@ -53,7 +53,7 @@ const Page = () => {
                     sign in
                 </a>
                 
-                <a href="./SignUp" className="w-1/3 pb-2 font-medium text-center capitalize border-b">
+                <a href="/SignUp" className="w-1/3 pb-2 font-medium text-center capitalize border-b">
                     sign up
                 </a>
             </div>
@@ -109,4 +109,3 @@ const Page = () => {
   )
 }
 
-export default Page

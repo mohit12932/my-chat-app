@@ -1,11 +1,19 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import axios from "axios";
 
 const Page = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); 
+  }, []);
+
+  if (!isClient) return null; 
+
   const { register, handleSubmit, setError, clearErrors, formState: { errors, isSubmitting } } = useForm();
   const router = useRouter();
 
@@ -16,7 +24,7 @@ const Page = () => {
 
   const onSubmit = async (data) => {
     try {
-      let response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/signin`);
+      let response = await axios.post("http://localhost:8000/signin", data);
       let result = response.data;
 
       if (response.status === 201) {
@@ -35,12 +43,12 @@ const Page = () => {
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("token", result.token);
-      localStorage.setItem("user", JSON.stringify(result.user));
-      localStorage.setItem("friends", result.friends);
+    if (loginResult) {
+      localStorage.setItem("token", loginResult.token);
+      localStorage.setItem("user", JSON.stringify(loginResult.user));
+      localStorage.setItem("friends", loginResult.friends);
     }
-  }, [result]); 
+  }, [loginResult]);
 
   return (
     <div className="bg-custom-background bg-cover bg-no-repeat h-screen flex justify-center items-center">
@@ -48,8 +56,7 @@ const Page = () => {
         <div className="container flex items-baseline justify-center h-auto px-6 mx-auto">
           <form className="w-full max-w-md" onSubmit={handleSubmit(onSubmit)}>
             <div className="flex justify-center mx-auto">
-              <Image className="w-auto h-7 sm:h-8"   width={100} 
-  height={30} src="https://merakiui.com/images/logo.svg" alt="" />
+              <Image src="https://merakiui.com/images/logo.svg" alt="Logo" width={100} height={30} />
             </div>
 
             <div className="flex items-center justify-center mt-6">
@@ -73,7 +80,7 @@ const Page = () => {
             <div className="mt-2">
               <div className="flex items-center justify-between">
                 <label htmlFor="password" className="block text-sm font-medium">Password</label>
-                <span className="text-xs font-medium hover:underline" onClick={togglePasswordVisibility}>
+                <span className="text-xs font-medium hover:underline cursor-pointer" onClick={togglePasswordVisibility}>
                   {isPasswordVisible ? "Hide" : "Show"}
                 </span>
               </div>
@@ -89,7 +96,10 @@ const Page = () => {
               </button>
             </div>
 
-            <p className="mt-8 text-xs font-light text-center"> Don&apos;t have an account? <a href="./SignUp" className="font-medium text-blue-500 hover:underline">Register</a></p>
+            <p className="mt-8 text-xs font-light text-center"> 
+              Don&apos;t have an account? 
+              <a href="./SignUp" className="font-medium text-blue-500 hover:underline">Register</a>
+            </p>
           </form>
         </div>
       </div>

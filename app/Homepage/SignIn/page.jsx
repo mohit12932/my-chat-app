@@ -15,18 +15,20 @@ const Page = () => {
 
   const onSubmit = async (data) => {
     try {
-      let response = await axios.post("http://localhost:8000/signin", data);
+      let response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/signin`);
       let result = response.data;
 
       if (response.status === 201) {
         alert("Logged in Successfully");
         
-        // Ensure client-only logic remains in the client
-        if (typeof window !== "undefined") {
-          localStorage.setItem("token", result.token);
-          localStorage.setItem("user", JSON.stringify(result.user));
-          localStorage.setItem("friends", result.friends);
-        }
+        useEffect(() => {
+          if (typeof window !== "undefined") {
+            localStorage.setItem("token", result.token);
+            localStorage.setItem("user", JSON.stringify(result.user));
+            localStorage.setItem("friends", result.friends);
+          }
+        }, [result]); 
+        
 
         router.push("/chatpage");
       }
@@ -46,7 +48,8 @@ const Page = () => {
         <div className="container flex items-baseline justify-center h-auto px-6 mx-auto">
           <form className="w-full max-w-md" onSubmit={handleSubmit(onSubmit)}>
             <div className="flex justify-center mx-auto">
-              <Image className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt="" />
+              <Image className="w-auto h-7 sm:h-8"   width={100} 
+  height={30} src="https://merakiui.com/images/logo.svg" alt="" />
             </div>
 
             <div className="flex items-center justify-center mt-6">
@@ -86,7 +89,7 @@ const Page = () => {
               </button>
             </div>
 
-            <p className="mt-8 text-xs font-light text-center"> Don&apost have an account? <a href="./SignUp" className="font-medium text-blue-500 hover:underline">Register</a></p>
+            <p className="mt-8 text-xs font-light text-center"> Don&apos;t have an account? <a href="./SignUp" className="font-medium text-blue-500 hover:underline">Register</a></p>
           </form>
         </div>
       </div>

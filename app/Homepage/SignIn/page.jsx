@@ -10,6 +10,7 @@ const Page = () => {
   const router = useRouter();
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [loginResult, setLoginResult] = useState(null);
 
   const togglePasswordVisibility = () => setIsPasswordVisible(!isPasswordVisible);
 
@@ -20,16 +21,7 @@ const Page = () => {
 
       if (response.status === 201) {
         alert("Logged in Successfully");
-        
-        useEffect(() => {
-          if (typeof window !== "undefined") {
-            localStorage.setItem("token", result.token);
-            localStorage.setItem("user", JSON.stringify(result.user));
-            localStorage.setItem("friends", result.friends);
-          }
-        }, [result]); 
-        
-
+        setLoginResult(result);
         router.push("/chatpage");
       }
     } catch (error) {
@@ -41,6 +33,14 @@ const Page = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("token", result.token);
+      localStorage.setItem("user", JSON.stringify(result.user));
+      localStorage.setItem("friends", result.friends);
+    }
+  }, [result]); 
 
   return (
     <div className="bg-custom-background bg-cover bg-no-repeat h-screen flex justify-center items-center">

@@ -31,7 +31,8 @@ const Chats = ({ activeUser , user }) => {
       {Users.length > 0 && (
     <div>
     {Users.map((Users, index) => (<button key={index} class="flex items-center w-full px-5 py-2 transition-colors duration-200 hover:bg-gray-800 gap-x-2  focus:outline-none" onClick={() => openChat(Users)}>
-          <Image class="object-cover w-8 h-8 rounded-full" src={Users.Profile} alt=""/>
+          <Image class="object-cover w-8 h-8 rounded-full" src={Users.Profile} alt=""  width={32} 
+       height={32}/>
           <h1 class="text-sm font-medium text-white">{Users.Username}</h1>
       </button> ))}
   </div>

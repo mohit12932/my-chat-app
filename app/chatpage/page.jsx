@@ -11,14 +11,14 @@ const Page = () => {
   const [Nav, setNav] = useState('1');
   const linkRef = useRef(null);
   const [User, setChatUser] = useState(null);
+  const [isMounted, setIsMounted] = useState(false); // Ensure client-side rendering
 
-  // Load user from localStorage on component mount
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const storedUser = localStorage.getItem('user');
-      if (storedUser) {
-        setUser(JSON.parse(storedUser));
-      }
+    setIsMounted(true); // Only set after the component mounts
+
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
     }
   }, []);
 
@@ -32,17 +32,20 @@ const Page = () => {
     setChatUser(chatuser);
   };
 
+  // **🔹 Prevent hydration errors by rendering only after mounting**
+  if (!isMounted) return <div className="h-screen flex items-center justify-center text-white">Loading...</div>;
+
   return (
     <aside className="flex py-[2%] px-[5%] bg-custom-background bg-cover bg-no-repeat h-screen">
       <div className="flex flex-col items-center w-16 h-[90vh] py-8 space-y-8 bg-[#0b0d26] border-gray-700 rounded-lg">
         <a href="#">
-          <Image className="w-auto h-6" src="https://merakiui.com/images/logo.svg" alt="" />
+          <Image className="w-auto h-6" src="https://merakiui.com/images/logo.svg" alt="Logo" width={24} height={24} />
         </a>
 
         <a
           href="#"
           ref={linkRef}
-          className="p-1.5 focus:text-blue-500 focus:bg-gray-800 focus:outline-nones transition-colors duration-200 rounded-lg text-gray-400 hover:bg-gray-800"
+          className="p-1.5 focus:text-blue-500 focus:bg-gray-800 focus:outline-none transition-colors duration-200 rounded-lg text-gray-400 hover:bg-gray-800"
           onClick={() => setNav('1')}
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -52,7 +55,7 @@ const Page = () => {
 
         <a
           href="#"
-          className="p-1.5 focus:text-blue-500 focus:bg-gray-800 focus:outline-nones transition-colors duration-200 rounded-lg text-gray-400 hover:bg-gray-800"
+          className="p-1.5 focus:text-blue-500 focus:bg-gray-800 focus:outline-none transition-colors duration-200 rounded-lg text-gray-400 hover:bg-gray-800"
           onClick={() => setNav('2')}
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -61,8 +64,8 @@ const Page = () => {
         </a>
 
         {user && (
-          <a href="#" className="p-1.5 focus:bg-gray-800 focus:outline-nones transition-colors duration-200 rounded-lg hover:bg-gray-800" onClick={() => setNav('3')}>
-            <Image className="object-cover w-8 h-8 rounded-full" src={user.Profile} alt="" />
+          <a href="#" className="p-1.5 focus:bg-gray-800 focus:outline-none transition-colors duration-200 rounded-lg hover:bg-gray-800" onClick={() => setNav('3')}>
+            <Image className="object-cover w-8 h-8 rounded-full" src={user.Profile} alt="User" width={32} height={32} />
           </a>
         )}
       </div>

@@ -56,7 +56,8 @@ const Addfriend = ({user}) => {
          {Friend && !errors.NoUser &&(
           <div class="flex mt-2">
          <div  class="flex items-center w-full px-5 py-2 transition-colors duration-200 hover:bg-gray-800 gap-x-2  focus:outline-none">
-          <Image class="object-cover w-8 h-8 rounded-full" src={Friend.Profile} alt=""/>
+          <Image class="object-cover w-8 h-8 rounded-full" src={Friend.Profile} alt="" width={32} 
+       height={32}/>
           <h1 class="text-sm font-medium text-white">{Friend.Username}</h1>
          </div>
         <button class="px-3 hover:border rounded-full" onClick={addFriend}>

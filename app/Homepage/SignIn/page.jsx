@@ -50,7 +50,7 @@ const Page = () => {
 
   return (
     <div suppressHydrationWarning>
-      {!isClient ? "Loading..." : (
+      {isClient &&  (
     <div className="bg-custom-background bg-cover bg-no-repeat h-screen flex justify-center items-center">
       <div className="w-full h-auto max-w-72 sm:max-w-sm py-6 sm:py-12 sm:px-6 mx-auto backdrop-blur-3xl border rounded-lg shadow-md">
         <div className="container flex items-baseline justify-center h-auto px-6 mx-auto">

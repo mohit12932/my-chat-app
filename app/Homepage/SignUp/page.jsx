@@ -3,9 +3,10 @@ import React, {useState} from 'react'
 import { useForm } from "react-hook-form"
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import Image from 'next/image'
 import Avatar from 'react-avatar';
 
-export default function page(){
+export default function Page(){
     const router = useRouter();
     const { register, handleSubmit,watch,setError,clearErrors, formState: { errors,isSubmitting } } = useForm();
 
@@ -46,7 +47,7 @@ export default function page(){
     <div className="container flex items-baseline justify-center h-auto px-6 mx-auto">
         <form className="w-full max-w-md" onSubmit={handleSubmit(onSubmit)}  encType="multipart/form-data">
             <div className="flex justify-center mx-auto">
-                <img className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt=""/>
+                <Image width={500} height={300} className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt=""/>
             </div>
             
             <div className="flex items-center justify-center mt-6">
@@ -61,7 +62,7 @@ export default function page(){
             
              {errors.existUser && <p className="text-sm  mt-2 text-center text-red-400">{errors.existUser.message}</p>}
     
-             <Avatar alt="Remy Sharp" src="" />
+             {/* <Avatar alt="Remy Sharp" src="" /> */}
 
             <div className="relative flex items-center mt-5">
                 <span className="absolute">

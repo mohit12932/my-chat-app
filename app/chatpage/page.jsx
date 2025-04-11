@@ -4,20 +4,24 @@ import Account from './components/Account';
 import Displayfriends from './components/displayfriends';
 import Addfriend from './components/addfriend';
 import Chatbox from './components/chatbox';
+import Image from 'next/image'
 //import { useForm } from "react-hook-form"
 //import axios from 'axios';
 //import search from './addfriend';
 
 
-const page = () => {
+const Page = () => {
    //const { register, handleSubmit } = useForm();
-  const user = JSON.parse(localStorage.getItem('user'));
-
+  
+   const[me,setMe]=useState(null);
+  const [Client,setClient]=useState(0); 
   const [User, setUser] = useState(null);
  const [Nav,setNav]=useState('1');
   const linkRef = useRef(null);
 
   useEffect(() => {
+    setClient(1);
+    setMe(JSON.parse(localStorage.getItem('user')))
     if (linkRef.current) {
       linkRef.current.focus();
     }
@@ -27,13 +31,14 @@ const page = () => {
     setUser(chatuser)
   }
   
+  if(!Client) return null
 
   return (
     <aside class="flex py-[2%] px-[5%] bg-custom-background bg-cover bg-no-repeat h-screen">
 
 <div class="flex flex-col items-center w-16 h-[90vh] py-8 space-y-8  bg-[#0b0d26] border-gray-700 rounded-lg">
         <a href="#">
-            <img class="w-auto h-6" src="https://merakiui.com/images/logo.svg" alt=""/>
+            <Image width={500} height={300} class="w-auto h-6" src="https://merakiui.com/images/logo.svg" alt=""/>
         </a>
 
         <a href="#" ref={linkRef} class="p-1.5 focus:text-blue-500 focus:bg-gray-800 focus:outline-nones transition-colors duration-200 rounded-lg text-gray-400 hover:bg-gray-800" onClick={()=>setNav('1')}>
@@ -49,20 +54,20 @@ const page = () => {
         </a>
 
         <a href="#" class="p-1.5  focus:bg-gray-800 focus:outline-nones transition-colors duration-200 rounded-lg hover:bg-gray-800" onClick={()=>setNav('3')} >
-        <img class="object-cover w-8 h-8 rounded-full" src={user.Profile}  alt=""/>
+        <Image width={500} height={300} class="object-cover w-8 h-8 rounded-full" src={me.Profile}  alt=""/>
         </a>
     </div>
     
-          {Nav === '1' && <Displayfriends activeUser={Sentmessage} user={user}/>}
-          {Nav === '2' && <Addfriend  user={user}/>}
-          {Nav === '3' && <Account user={user} />}
+          {Nav === '1' && <Displayfriends activeUser={Sentmessage} user={me}/>}
+          {Nav === '2' && <Addfriend  user={me}/>}
+          {Nav === '3' && <Account user={me} />}
    
     <div class="hidden sm:flex  h-[90vh] py-6 px-4 overflow-y-auto  border-l rounded-lg border-r w-[65vw]  bg-gray-900 bg-opacity-50 backdrop-blur-sm border-gray-700">
-        {Nav === '1' && <Chatbox chatUser={User} user={user}/>}
+        {Nav === '1' && <Chatbox chatUser={User} user={me}/>}
     </div>
 
 </aside>
   )
 }
 
-export default page
+export default Page

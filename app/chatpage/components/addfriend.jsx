@@ -2,6 +2,7 @@
 import React, {useState } from 'react'
 import { useForm } from "react-hook-form"
 import axios from 'axios';
+import Image from 'next/image'
 
 const Addfriend = ({user}) => {
     const { register, handleSubmit,setError,clearErrors,setValue,formState: { errors}} = useForm();
@@ -55,7 +56,7 @@ const Addfriend = ({user}) => {
          {Friend && !errors.NoUser &&(
           <div class="flex mt-2">
          <div  class="flex items-center w-full px-5 py-2 transition-colors duration-200 hover:bg-gray-800 gap-x-2  focus:outline-none">
-          <img class="object-cover w-8 h-8 rounded-full" src={Friend.Profile} alt=""/>
+          <Image width={500} height={300} class="object-cover w-8 h-8 rounded-full" src={Friend.Profile} alt=""/>
           <h1 class="text-sm font-medium text-white">{Friend.Username}</h1>
          </div>
         <button class="px-3 hover:border rounded-full" onClick={addFriend}>

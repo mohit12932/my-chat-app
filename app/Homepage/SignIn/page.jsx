@@ -1,14 +1,20 @@
 "use client"
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { useForm } from "react-hook-form"
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import Image from 'next/image'
 
-const page = () => {
+const Page = () => {
     const { register, handleSubmit,setError,clearErrors, formState: { errors,isSubmitting } } = useForm();
     const router = useRouter();
-
+        
+    const [Client,setClient]=useState(0); 
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+     useEffect(() => {
+        setClient(1);
+      }, []);
  
     const togglePasswordVisibility = () => {   
         setIsPasswordVisible(!isPasswordVisible); };
@@ -20,9 +26,10 @@ const page = () => {
 
                 if(response.status==201){
                     alert("Logged in Successfully")
+                    if(Client){
                    localStorage.setItem('token', result.token);
                    localStorage.setItem('user', JSON.stringify(result.user));
-                   localStorage.setItem('friends', result.friends);
+                   localStorage.setItem('friends', result.friends);}
                     router.push('/chatpage');
                     }
                 }catch (error) {
@@ -41,7 +48,7 @@ const page = () => {
     <div className="container flex items-baseline justify-center h-auto px-6 mx-auto">
         <form className="w-full max-w-md"onSubmit={handleSubmit(onSubmit)}>
             <div className="flex justify-center mx-auto">
-                <img className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt=""/>
+                <Image width={500} height={300} className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt=""/>
             </div>
             
             <div className="flex items-center justify-center mt-6">
@@ -93,7 +100,7 @@ const page = () => {
             </button>
         </div>
 
-    <p className="mt-8 text-xs font-light text-center"> Don't have an account? <a href="./SignUp" className="font-medium text-blue-500 hover:underline">Register</a></p>
+    <p className="mt-8 text-xs font-light text-center"> Don&apos;t have an account? <a href="./SignUp" className="font-medium text-blue-500 hover:underline">Register</a></p>
 
          </form>
          
@@ -105,4 +112,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

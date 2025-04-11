@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/navigation';
+import Image from 'next/image'
 
 const Account = ({user}) => {
     const router = useRouter();
@@ -13,7 +14,7 @@ const Account = ({user}) => {
     <div class="h-[90vh] py-6 px-4 overflow-y-auto  border-l rounded-lg border-r w-full sm:w-[20vw]  bg-[#0b0d26] border-gray-700">
          <h2 class="px-5 pb-2 text-lg text-center items-center border-b my-4 font-medium text-white">Profile</h2>
         <div class="flex flex-col items-center my-[30%] -mx-2">
-        <img class="object-cover w-24 h-24 mx-2 rounded-full" src={user.Profile} alt="avatar"/>
+        <Image width={500} height={300} class="object-cover w-24 h-24 mx-2 rounded-full" src={user.Profile} alt="avatar"/>
         <h4 class="mx-2 mt-4 font-medium text-gray-200">{user.Username}</h4>
         <p class="mx-2 mt-2 text-sm font-medium text-gray-400">{user.emailadress}</p>
         <button class="p-2.5 mx-2 mt-16 bg-gray-800 hover:bg-gray-600 rounded-lg " onClick={clear}>

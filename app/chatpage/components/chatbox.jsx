@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 import { io } from 'socket.io-client';
+import Image from 'next/image'
 
 const Chatbox = ({ chatUser, user }) => {
   const { register, handleSubmit, reset, watch } = useForm();
@@ -78,7 +79,7 @@ const Chatbox = ({ chatUser, user }) => {
         <div className="w-full">
           {/* Header */}
           <div className="flex items-center px-5 pt-4 pb-6 w-full h-[8%] border-b mb-4 gap-x-2">
-            <img
+            <Image width={500} height={300}
               className="object-cover w-8 h-8 rounded-full"
               src={chatUser.Profile}
               alt=""

@@ -15,11 +15,11 @@ async function startServer() {
     await mongoose.connect(`${process.env.MONGODB_URI}/user_info`); 
 
     const app = express();
-    const port = 8000;
+    const port = process.env.PORT || 8000; // Use environment variable for port
 
     app.use(cors({
       origin: "*", // Use specific domain(s) for better security instead of '*'
-      methods: ["GET", "POST"],
+      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     }));
     app.use(bodyParser.json());
 

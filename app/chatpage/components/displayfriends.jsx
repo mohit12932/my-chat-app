@@ -8,7 +8,7 @@ const Chats = ({ activeUser , user }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-      const response = await axios.post("http://localhost:8000/displayusers",user);
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/displayusers`,user);
         const chat=response.data;
         setUsers(chat);
       } catch (error) {

@@ -25,7 +25,7 @@ export default function Page(){
                 }
         else{ delete data.Profile; }
            
-        try{ let response = await axios.post("http://localhost:8000/signup",data);
+        try{ let response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/signup`,data);
              if(response.status==201){
                 alert('User registered successfully!');
                 router.push('./SignIn');

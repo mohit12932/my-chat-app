@@ -12,7 +12,7 @@ dotenv.config();
 
 async function startServer() {
   try {
-    await mongoose.connect("mongodb://localhost:27017/user_info");
+    await mongoose.connect(`${process.env.MONGODB_URI}/user_info`); 
 
     const app = express();
     const port = 8000;
@@ -28,7 +28,7 @@ async function startServer() {
     const io = new Server(server, {
       pingTimeout: 120000,
       cors: {
-        origin: "http://localhost:3000",
+        origin: "*",
         methods: ["GET", "POST"],
       },
     });

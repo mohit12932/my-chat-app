@@ -8,7 +8,7 @@ const Chatbox = ({ chatUser, user }) => {
   const { register, handleSubmit, reset, watch } = useForm();
   const [messages, setMessages] = useState([]);
   const [selectedMessages, setSelectedMessages] = useState([]);
-  const socket = useMemo(() => io("http://localhost:8000"), []);
+  const socket = useMemo(() => io(`${process.env.NEXT_PUBLIC_SERVER_URL}`), []);
 
   useEffect(() => {
     const handleMessage = (data) => {
@@ -19,7 +19,7 @@ const Chatbox = ({ chatUser, user }) => {
 
     const fetchMessages = async () => {
       try {
-        const response = await axios.post("http://localhost:8000/displaychat", { user, chatUser });
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/displaychat`, { user, chatUser });
         const chat = response.data;
         setMessages([...chat.myChat, ...chat.friendChat]);
       } catch (error) {
@@ -34,7 +34,7 @@ const Chatbox = ({ chatUser, user }) => {
 
   const onSubmit = async (data) => {
     try {
-      await axios.post("http://localhost:8000/displaychat/updatemessage", {
+      await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/displaychat/updatemessage`, {
         data,
         user,
         chatUser,
@@ -57,7 +57,7 @@ const Chatbox = ({ chatUser, user }) => {
 
   const handleDeleteSelectedMessages = async () => {
     try {
-      await axios.post("http://localhost:8000/displaychat/deletechat", {
+      await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/displaychat/deletechat`, {
         messageIds: selectedMessages,
       });
 

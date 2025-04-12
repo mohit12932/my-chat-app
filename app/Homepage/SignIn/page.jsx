@@ -21,7 +21,7 @@ const Page = () => {
 
         const onSubmit = async (data)=> {
 
-            try{ let response = await axios.post("http://localhost:8000/signin",data); 
+            try{ let response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/signin`,data); 
                 let result =response.data;
 
                 if(response.status==201){

@@ -9,7 +9,7 @@ const Addfriend = ({user}) => {
     const [Friend, setFriend] = useState(null);
 
   const addFriend=async()=>{
-      let response = await axios.post("http://localhost:8000/adduser/add",{user,Friend} );
+      let response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/adduser/add`,{user,Friend} );
       if(response.status==201){
         alert("Added Successfully")}
         window.location.reload();
@@ -18,7 +18,7 @@ const Addfriend = ({user}) => {
       const onSubmit = async (data)=> {
                try {
                 data.user=user.Username;
-                let response = await axios.post("http://localhost:8000/adduser", data);
+                let response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/adduser`, data);
                 let result = response.data;
                 console.log(result)
                 setFriend(result)

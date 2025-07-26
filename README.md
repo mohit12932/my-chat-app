@@ -43,6 +43,45 @@ A modern, full-stack **real-time messaging platform** built with the power of **
 
 ## 📁 Project Structure
 
+<pre>
+chat-app/
+├── backend/                           # Backend logic (Node.js + Express)
+│   ├── middlewares/                   # Custom middleware handlers
+│   │   └── multerMiddleware.js
+│   ├── models/                        # Mongoose data models
+│   │   ├── chatModel.js
+│   │   ├── messageModel.js
+│   │   └── userModel.js
+│   ├── routes/                        # RESTful route handlers
+│   │   ├── adduser.js
+│   │   ├── displaychat.js
+│   │   ├── displayuser.js
+│   │   ├── signin.js
+│   │   ├── signup.js
+│   │   └── userRoutes.js
+│   ├── server.js                      # Express server and Socket.IO config
+│   ├── package.json
+│   └── .gitignore
+│
+├── client/                            # Frontend logic (Next.js + Tailwind)
+│   ├── app/                           # Pages and components
+│   ├── public/                        # Static assets
+│   ├── next.config.mjs                # Next.js config
+│   ├── tailwind.config.js             # TailwindCSS config
+│   ├── postcss.config.mjs
+│   ├── package.json
+│   ├── .eslintrc.json
+│   └── .gitignore
+│
+├── .idea/                             # IDE configs (for JetBrains IDEs)
+│   ├── inspectionProfiles/
+│   ├── chat_app.iml
+│   ├── editor.xml
+│   └── modules.xml
+├── README.md
+</pre>
+
+---
 
 
 
@@ -59,14 +98,26 @@ A modern, full-stack **real-time messaging platform** built with the power of **
 
 git clone https://github.com/mohit12932/my-chat-app
 cd my-chat-app
+
+# Backend
+
+cd backend
 npm install
+
+# Frontend
+
+cd ../client
+npm install
+
 
 ### 🔨 Run the Development Server
 
 # Start backend (Express + Socket.io)
+cd backend
 npm run server
 
 # Start frontend (Next.js)
+cd client
 npm run dev
 
 

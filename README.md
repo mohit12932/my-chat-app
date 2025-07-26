@@ -99,12 +99,12 @@ chat-app/
 git clone https://github.com/mohit12932/my-chat-app
 cd my-chat-app
 
-# Backend
+### Backend
 
 cd backend
 npm install
 
-# Frontend
+### Frontend
 
 cd ../client
 npm install
@@ -112,11 +112,11 @@ npm install
 
 ### 🔨 Run the Development Server
 
-# Start backend (Express + Socket.io)
+### Start backend (Express + Socket.io)
 cd backend
 npm run server
 
-# Start frontend (Next.js)
+### Start frontend (Next.js)
 cd client
 npm run dev
 

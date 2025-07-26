@@ -125,12 +125,3 @@ npm run server
 
 cd client
 npm run dev
-
-
-
-
-
-
-
-
-

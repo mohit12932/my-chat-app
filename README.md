@@ -778,12 +778,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-## 👥 Authors
-
-- **Your Name** - Initial work - [GitHub Profile](https://github.com/yourusername)
-
----
-
 ## 🙏 Acknowledgments
 
 - Next.js team for the amazing framework
@@ -796,18 +790,17 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📞 Support
 
-For support, email your-email@example.com or open an issue in the repository.
+For support, email moht1092.2@gmail.com or open an issue in the repository.
 
 ---
 
 ## 🔗 Links
 
 - **Documentation:** This README
-- **Live Demo:** [Coming Soon]
 - **API Docs:** See API Reference section above
 - **Bug Reports:** GitHub Issues
 - **Feature Requests:** GitHub Issues
 
 ---
 
-**Built with ❤️ using Next.js, Node.js, MongoDB, and Socket.io**
+**Built using Next.js, Node.js, MongoDB, and Socket.io**

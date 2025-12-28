@@ -64,6 +64,19 @@ A production-ready, full-stack chat application built with **Next.js**, **Node.j
 
 ---
 
+##  Screenshots
+```
+<img width="1835" height="837" alt="Screenshot 2025-12-28 201413" src="https://github.com/user-attachments/assets/f5cd18b7-2706-471a-ac99-ac3f42cb8bd8" />
+<img width="1918" height="878" alt="Screenshot 2025-12-28 201509" src="https://github.com/user-attachments/assets/43c69319-413e-42ee-ab8b-9b9cdabc5358" />
+<img width="1919" height="875" alt="Screenshot 2025-12-28 201755" src="https://github.com/user-attachments/assets/5df6b387-ce19-4265-98e3-20ce3a2ed56b" />
+<img width="642" height="511" alt="Screenshot 2025-12-28 201615" src="https://github.com/user-attachments/assets/cb0c7ca2-6e82-4e3b-8468-e4240eebe661" />
+<img width="437" height="562" alt="Screenshot 2025-12-28 201811" src="https://github.com/user-attachments/assets/258aea4d-74e6-4632-be22-d230ed047e63" />
+<img width="433" height="548" alt="Screenshot 2025-12-28 201823" src="https://github.com/user-attachments/assets/cc6cda2f-c3a3-4d65-b34e-9339cb109ada" />
+
+```
+
+----
+
 ## 📂 Project Structure
 
 ```

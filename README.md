@@ -32,9 +32,12 @@ A modern, full-stack **real-time messaging platform** built with the power of **
 ---
 
 ## 📸 Screenshots
-
-<img width="1916" height="876" alt="Screenshot 2025-07-08 151351" src="https://github.com/user-attachments/assets/91671127-e182-4587-a78d-b1bd44ef9c01" />
-<img width="1919" height="886" alt="image" src="https://github.com/user-attachments/assets/59f1a033-5a91-4e2a-9a96-9da3170dffa1" />
+<img width="1835" height="837" alt="Screenshot 2025-12-28 201413" src="https://github.com/user-attachments/assets/4f637d1d-7add-42bb-96e7-2a6914804532" />
+<img width="1918" height="878" alt="Screenshot 2025-12-28 201509" src="https://github.com/user-attachments/assets/821ba746-511b-4624-b18b-f05cbd0aebad" />
+<img width="642" height="511" alt="Screenshot 2025-12-28 201615" src="https://github.com/user-attachments/assets/7c801588-a5fa-4bb5-b76c-7f1b9df7e9ac" />
+<img width="1919" height="875" alt="Screenshot 2025-12-28 201755" src="https://github.com/user-attachments/assets/ef21f44d-290a-447e-a138-11859a452e7d" />
+<img width="437" height="562" alt="Screenshot 2025-12-28 201811" src="https://github.com/user-attachments/assets/ba3284b1-8cca-42f3-8459-82049344ed0e" />
+<img width="433" height="548" alt="Screenshot 2025-12-28 201823" src="https://github.com/user-attachments/assets/93b53d3d-4781-45e0-b837-4564aad97bba" />
 
 
 ---

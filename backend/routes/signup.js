@@ -4,6 +4,11 @@ import { Users } from '../models/userModel.js';
 
 const router = express.Router();
 
+// Utility: Get user's timezone from header or use UTC
+const getUserTimezone = (req) => {
+  return req.headers['x-timezone'] || 'UTC';
+};
+
 router.post('/', async (req, res) => {
   try {
     const existingUsername = await Users.findOne({ Username: req.body.Username });
@@ -16,12 +21,13 @@ router.post('/', async (req, res) => {
     }
 
     req.body.Password = req.body.ConfirmPassword = await bcrypt.hash(req.body.Password, 10);
+    req.body.timezone = getUserTimezone(req);
 
     const users = new Users(req.body);
     await users.save();
     res.status(201).json(users);
   } catch (error) {
-    console.error(error);
+    console.error(error); 
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });

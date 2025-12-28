@@ -122,7 +122,7 @@ const Page = () => {
                 </button>
               </div>
 
-              <p className="mt-8 text-xs font-light text-center"> Don't have an account? <a href="./SignUp" className="font-medium text-blue-500 hover:underline">Register</a></p>
+              <p className="mt-8 text-xs font-light text-center"> Don&apos;t have an account? <a href="./SignUp" className="font-medium text-blue-500 hover:underline">Register</a></p>
             </form>
           )}
         </div>
